@@ -1,0 +1,355 @@
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55:0,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple: In instantiation of 'struct std::tuple_element<1ull, std::tuple<double&> >':
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:755:12:   required from 'struct std::tuple_element<2ull, std::tuple<int&, double&> >'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:769:69:   required by substitution of 'template<long long unsigned int __i, class _Tp> using __tuple_element_t = typename std::tuple_element::type [with long long unsigned int __i = 2ull; _Tp = std::tuple<int&, double&>]'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:844:5:   required by substitution of 'template<long long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >&& std::get(std::tuple<_Elements ...>&&) [with long long unsigned int __i = 2ull; _Elements = {int&, double&}]'
+bind.cpp:65:27:   required from 'decltype(auto) bind_function<F, Args>::calc(place_holder<N>&, new_Args& ...) [with int N = 2; new_Args = {int, double}; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]'
+bind.cpp:72:25:   required from 'auto bind_function<F, Args>::call_with_sequence(const bind_function<F, Args>::sequence<S ...>&, new_Args&& ...) [with new_Args = {int, double}; int ...S = 0, 1, 2; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]'
+bind.cpp:77:34:   required from 'auto bind_function<F, Args>::operator()(new_Args&& ...) [with new_Args = {int, double}; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]'
+bind.cpp:96:48:   required from here
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:755:12: error: invalid use of incomplete type 'struct std::tuple_element<0ull, std::tuple<> >'
+     struct tuple_element<__i, tuple<_Head, _Tail...> >
+            ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:38:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:85:11: note: declaration of 'struct std::tuple_element<0ull, std::tuple<> >'
+     class tuple_element;
+           ^
+bind.cpp: In instantiation of 'decltype(auto) bind_function<F, Args>::calc(place_holder<N>&, new_Args& ...) [with int N = 2; new_Args = {int, double}; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]':
+bind.cpp:72:25:   required from 'auto bind_function<F, Args>::call_with_sequence(const bind_function<F, Args>::sequence<S ...>&, new_Args&& ...) [with new_Args = {int, double}; int ...S = 0, 1, 2; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]'
+bind.cpp:77:34:   required from 'auto bind_function<F, Args>::operator()(new_Args&& ...) [with new_Args = {int, double}; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]'
+bind.cpp:96:48:   required from here
+bind.cpp:65:27: error: no matching function for call to 'get(std::tuple<int&, double&>)'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:38:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:147:5: note: candidate: template<long long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:147:5: note:   template argument deduction/substitution failed:
+bind.cpp:65:27: note:   'std::tuple<int&, double&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:38:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:152:5: note: candidate: template<long long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:152:5: note:   template argument deduction/substitution failed:
+bind.cpp:65:27: note:   'std::tuple<int&, double&>' is not derived from 'std::pair<_Tp1, _Tp2>'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:38:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:157:5: note: candidate: template<long long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:157:5: note:   template argument deduction/substitution failed:
+bind.cpp:65:27: note:   'std::tuple<int&, double&>' is not derived from 'const std::pair<_Tp1, _Tp2>'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:38:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:166:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:166:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:171:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:171:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:176:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:176:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:181:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:181:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:186:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:186:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:191:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/utility:191:5: note:   template argument deduction/substitution failed:
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:39:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:272:5: note: candidate: template<long long unsigned int _Int, class _Tp, long long unsigned int _Nm> constexpr _Tp& std::get(std::array<_Tp, _Nm>&)
+     get(array<_Tp, _Nm>& __arr) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:272:5: note:   template argument deduction/substitution failed:
+bind.cpp:65:27: note:   'std::tuple<int&, double&>' is not derived from 'std::array<_Tp, _Nm>'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:39:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:281:5: note: candidate: template<long long unsigned int _Int, class _Tp, long long unsigned int _Nm> constexpr _Tp&& std::get(std::array<_Tp, _Nm>&&)
+     get(array<_Tp, _Nm>&& __arr) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:281:5: note:   template argument deduction/substitution failed:
+bind.cpp:65:27: note:   'std::tuple<int&, double&>' is not derived from 'std::array<_Tp, _Nm>'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:39:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:289:5: note: candidate: template<long long unsigned int _Int, class _Tp, long long unsigned int _Nm> constexpr const _Tp& std::get(const std::array<_Tp, _Nm>&)
+     get(const array<_Tp, _Nm>& __arr) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:289:5: note:   template argument deduction/substitution failed:
+bind.cpp:65:27: note:   'std::tuple<int&, double&>' is not derived from 'const std::array<_Tp, _Nm>'
+         return std::get<N>(std::forward_as_tuple(new_args...));
+                           ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55:0,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:832:5: note: candidate: template<long long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >& std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Elements...>& __t) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:832:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:838:5: note: candidate: template<long long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >& std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Elements...>& __t) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:838:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:844:5: note: candidate: template<long long unsigned int __i, class ... _Elements> constexpr std::__tuple_element_t<__i, std::tuple<_Elements ...> >&& std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Elements...>&& __t) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:844:5: note:   substitution of deduced template arguments resulted in errors seen above
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:867:5: note: candidate: template<class _Tp, class ... _Types> constexpr _Tp& std::get(std::tuple<_Elements ...>&)
+     get(tuple<_Types...>& __t) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:867:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:873:5: note: candidate: template<class _Tp, class ... _Types> constexpr _Tp&& std::get(std::tuple<_Elements ...>&&)
+     get(tuple<_Types...>&& __t) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:873:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:879:5: note: candidate: template<class _Tp, class ... _Types> constexpr const _Tp& std::get(const std::tuple<_Elements ...>&)
+     get(const tuple<_Types...>& __t) noexcept
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:879:5: note:   template argument deduction/substitution failed:
+bind.cpp: In instantiation of 'auto bind_function<F, Args>::call_with_sequence(const bind_function<F, Args>::sequence<S ...>&, new_Args&& ...) [with new_Args = {int, double}; int ...S = 0, 1, 2; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]':
+bind.cpp:77:34:   required from 'auto bind_function<F, Args>::operator()(new_Args&& ...) [with new_Args = {int, double}; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]'
+bind.cpp:96:48:   required from here
+bind.cpp:72:25: error: use of 'decltype(auto) bind_function<F, Args>::calc(place_holder<N>&, new_Args& ...) [with int N = 1; new_Args = {int, double}; F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}]' before deduction of 'auto'
+         return func(calc(std::get<S>(initial_args), new_args...)...);
+                         ^
+bind.cpp: In function 'int main()':
+bind.cpp:96:15: error: no match for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'void')
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+               ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:108:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:108:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:117:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:117:7: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:127:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:127:7: note:   no known conversion for argument 1 from 'void' to 'std::ios_base& (*)(std::ios_base&)'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:166:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:166:7: note:   no known conversion for argument 1 from 'void' to 'long int'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:170:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:170:7: note:   no known conversion for argument 1 from 'void' to 'long unsigned int'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:174:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:174:7: note:   no known conversion for argument 1 from 'void' to 'bool'
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:638:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:91:5: note: candidate: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from 'void' to 'short int'
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:181:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:181:7: note:   no known conversion for argument 1 from 'void' to 'short unsigned int'
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:638:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:105:5: note: candidate: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from 'void' to 'int'
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:192:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:192:7: note:   no known conversion for argument 1 from 'void' to 'unsigned int'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:201:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:201:7: note:   no known conversion for argument 1 from 'void' to 'long long int'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:205:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:205:7: note:   no known conversion for argument 1 from 'void' to 'long long unsigned int'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:220:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:220:7: note:   no known conversion for argument 1 from 'void' to 'double'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:224:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:224:7: note:   no known conversion for argument 1 from 'void' to 'float'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:232:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:232:7: note:   no known conversion for argument 1 from 'void' to 'long double'
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:245:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:245:7: note:   no known conversion for argument 1 from 'void' to 'const void*'
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:638:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:119:5: note: candidate: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'void' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:628:5: note: candidate: template<class _CharT, class _Traits, class _Tp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&)
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:628:5: note:   template argument deduction/substitution failed:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream: In substitution of 'template<class _CharT, class _Traits, class _Tp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = void]':
+bind.cpp:96:48:   required from here
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:628:5: error: forming reference to void
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:574:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:574:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'const unsigned char*'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:569:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:569:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'const signed char*'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:556:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:556:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'const char*'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:638:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:321:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'const char*'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:539:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:539:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:48: note:   mismatched types 'const _CharT*' and 'void'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                                ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:519:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:519:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'unsigned char'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:514:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:514:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'signed char'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:508:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:508:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'char'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:502:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:502:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'char'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39:0,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:497:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:497:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:48: note:   deduced conflicting types for parameter '_CharT' ('char' and 'void')
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                                ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/ios_base.h:46:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ios:42,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/ostream:38,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/iostream:39,
+                 from bind.cpp:4:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/system_error:209:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::error_code&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __e)
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/system_error:209:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:41: note:   cannot convert 'bind(F&&, Args&& ...) [with F = double (*)(double, double, int); Args = {place_holder<2>&, place_holder<2>&, place_holder<1>&}](_2, _2, _1).bind_function<F, Args>::operator()<{int, double}>(7, 5.0e-1)' (type 'void') to type 'const std::error_code&'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                         ^
+In file included from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/string:52:0,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/stdexcept:39,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/array:38,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/tuple:39,
+                 from D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/functional:55,
+                 from bind.cpp:3:
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/basic_string.h:5167:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+D:/Programming/Soft/TDM-GCC/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/bits/basic_string.h:5167:5: note:   template argument deduction/substitution failed:
+bind.cpp:96:48: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'void'
+     std::cout << bind(&mult, _2, _2, _1)(7, 0.5) << std::endl;
+                                                ^
