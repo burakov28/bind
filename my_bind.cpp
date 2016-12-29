@@ -1,185 +1,89 @@
 #include <iostream>
+#include <functional>
 
-template <size_t N>
-struct place_holder
-{};
+template < int N >
+struct place_holder {};
 
-place_holder<1> _1;
-place_holder<2> _2;
-place_holder<3> _3;
-place_holder<4> _4;
-place_holder<5> _5;
-place_holder<6> _6;
+place_holder<0> _1;
+place_holder<1> _2;
+place_holder<2> _3;
+place_holder<3> _4;
+place_holder<4> _5;
 
-struct null_pointer
-{};
+
 
 template <typename F, typename... Args>
-struct bind_function;
-
-template <size_t k, typename U>
-struct kth_proj
-{
-    typedef typename kth_proj <k - 1, typename U::next_list>::ret_value ret_value;
-
-    ret_value operator()(U lst)
-    {
-        return kth_proj <k - 1, typename U::next_list> ()(lst.nxt);
-    }
-};
-
-template <typename U>
-struct kth_proj <1, U>
-{
-    typedef typename U::ret_value ret_value;
+struct bind_function {
     
-    ret_value&& operator() (U lst)
-    {
-        return std::forward <ret_value> (lst.val);
-    }
-};
-
-template <typename F, typename T, typename... Args>
-struct data
-{
-    data <F, Args...> nxt;
-    T val;
-    data(F&& func, T&& _val, Args&&... args):
-        nxt(data <F, Args...> (std::forward <F> (func), std::forward <Args> (args)...)),
-        val(_val)
-    {}
-
-    template <typename U, typename... New>
-    auto operator()(U lst, New&&... args)
-    {
-        return nxt(lst, std::forward <New> (args)..., std::forward <T> (val));
-    }
-};
-
-template <typename F, size_t N, typename... Args>
-struct data <F, place_holder <N>, Args...>
-{
-    data <F, Args...> nxt;
-    data(F&& func, place_holder <N> ph, Args&&... args):
-        nxt(data <F, Args...> (std::forward <F> (func), std::forward <Args> (args)...))
-    {}
-
-    template <typename U, typename... New>
-    auto operator()(U lst, New&&... args)
-    {
-        return nxt(lst, std::forward <New> (args)..., kth_proj <N, U> ()(lst));
-    }
-};
-
-template <typename F, typename F1, typename... Args1, typename... Args>
-struct data <F, bind_function <F1, Args1...>, Args...>
-{
-    data <F, Args...> nxt;
-    bind_function <F1, Args1...> val;
-    data(F&& func, bind_function <F1, Args1...> _val, Args&&... args):
-        nxt(data <F, Args...> (std::forward <F> (func), std::forward <Args> (args)...)),
-        val(_val)
-    {}
-
-    template <typename U, typename... New>
-    auto operator()(U lst, New&&... args)
-    {
-        return nxt(lst, std::forward <New> (args)..., val.start_with_list(lst));
-    }
-};
-
-template <typename F>
-struct data <F, null_pointer>
-{
-    F func;
-    data(F&& _func, null_pointer):
-        func(std::forward <F> (_func))
-    {}
-
-    template <typename U, typename... New>
-    auto operator()(U lst, New&&... args)
-    {
-        return func(std::forward <New> (args)...);
-    }
-};
-
-template <typename... Args>
-struct list
-{};
-
-template <typename T, typename... Args>
-struct list <T, Args...>
-{
-    T&& val;
-    typedef T ret_value;
-    typedef list <Args...> next_list;
-    list <Args...> nxt;
-    list(T&& arg, Args&&... args):
-        val(std::forward <T> (arg)),
-        nxt(list <Args...> (std::forward <Args> (args)...))
-    {}
-};
-
-template <typename T>
-struct list <T>
-{
-    typedef T ret_value;
-    T&& val;
-    list(T&& arg):
-        val(std::forward <T> (arg))
-    {}
-};
-
-template <typename F, typename... Args>
-struct bind_function
-{
-    data <F, Args..., null_pointer> nxt;
-    bind_function(F&& _func, Args&&... args):
-        nxt(data <F, Args..., null_pointer> (std::forward <F> (_func), std::forward<Args> (args)..., null_pointer()))
-    {}
-
-    template <typename... New>
-    auto operator()(New&&... args)
-    {
-        return nxt(list <New...> (std::forward <New> (args)...));
-    }
-
-    template <typename U>
-    auto start_with_list(U lst)
-    {
-        return nxt(lst);
-    }
-};
-
-template <typename F, typename... Args>
-auto bind(F func, Args... args)
-{
-    return bind_function <F, Args...>(std::forward <F> (func), std::forward <Args> (args)...);
-}
-
-using namespace std;
-
-int add(int a, int b, int c, int d)
-{
-    return a + b + c + d;
-}
-
-struct mull
-{
-    int operator()(int a, int b)
-    {
-        return a * b;
-    }
-};
-
-int mul(int a, int b)
-{
-    return a * b;
-}
-
-int main()
-{
-    cout << bind(add, bind(mull(), _1, _2), bind(mul, _1, _1), _4, 4)(2, 2, 3, 6) << endl;
+    typedef std::tuple<Args...> my_tuple;
     
+    
+    F&& func;
+    my_tuple initial_args;
+
+    template <typename ctorF, typename... ctorArgs>
+    bind_function(ctorF&& _func, ctorArgs&&... ctor_args) : func(std::forward<ctorF>(_func)), initial_args(std::forward<ctorArgs>(ctor_args)...) {}
+
+    template <typename initial_arg, typename... newArgs>
+    decltype(auto) calc(initial_arg& carg, newArgs&&...) {
+        return carg;
+    }
+
+    template <typename bindF, typename... bindArgs, typename... newArgs>
+    decltype(auto) calc(bind_function<bindF, bindArgs...>& inner_bind, newArgs&&... new_args) {
+        return inner_bind(std::forward<newArgs>(new_args)...);
+    }
+
+    template <int N, typename... newArgs>
+    decltype(auto) calc(place_holder <N>&, newArgs&&... new_args) {
+        return std::get<N>(std::forward_as_tuple(std::forward<newArgs>(new_args)...));
+    }
+
+    template <int... S>
+    struct sequence {};
+
+    template <int S, int... Rest>
+    struct seq_gen {
+        typedef typename seq_gen <S - 1, S - 1, Rest...>::type type;
+    };
+
+    template <int... Rest>
+    struct seq_gen <0, Rest...> {
+        typedef sequence <Rest...> type;
+    };
+
+    template <typename... newArgs, int... S>
+    auto call_with_seq(const sequence <S...> &, newArgs&&... new_args) {
+        return func(calc(std::get<S>(initial_args), new_args...)...);
+    }
+
+    template <typename... newArgs>
+    auto operator() (newArgs&&... new_args) {
+        return call_with_seq(typename seq_gen<std::tuple_size<my_tuple>::value>::type(), std::forward<newArgs>(new_args)...);
+    }
+};
+
+
+template <typename F, typename... Args>
+bind_function<F, Args...> bind(F&& func, Args&&... args) {
+    return bind_function<F, Args...>(std::forward<F>(func), std::forward<Args>(args)...);
+}
+
+int mult(double a, int b, double c) {
+    return (int) (a * b * c);
+}
+
+using std::cout;
+using std::endl;
+
+
+void print() {
+    cout << "Hello" << endl;      
+}   
+
+int main() {
+        
+    cout << bind(&mult, _1, _2, _1)(0.5, 100) << endl;;
+    bind(&print)();
     return 0;
 }
